@@ -9,10 +9,12 @@ n=int(input())
 R=[int(input()) for _ in range(n)]
 
 min_price = R[0] # 初期時価 
-max_profit = -10**9  # もし初期時価 R[0]が最大価格スタート = 初期最小損益(0yen - 10**9)とした場合　#実際はこれより1以上大きい最大損益しかあり得ない(1 - 10**9 以上)
+max_profit = -10**9  # 初期時価 R[0]が最大価格スタート = 初期最小損益(0yen - 10**9)とした場合　#実際はこれより1以上大きい最大損益しかあり得ない(1 - 10**9 以上)
 
 for price in R[1:]:
     max_profit = max(max_profit, price - min_price)
+    print("current_max_profit: ${s}", max_profit)
     min_price = min(price, min_price)
+    print("current_min_price: ${s}", min_price)
 
 print(max_profit)
